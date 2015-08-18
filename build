@@ -1,0 +1,6 @@
+. VERSION
+sed -e "s/HADOOP_VERSION hadoop-2.4.1/HADOOP_VERSION hadoop-${HADOOP_VERSION}/g" Dockerfile > tmp.dockerfile
+sed -i "s/HADOOP_VERSION_NUM 2.4.1/HADOOP_VERSION_NUM ${HADOOP_VERSION}/g" tmp.dockerfile
+sed -i "s/HIVE_VERSION hive-1.2.1/HIVE_VERSION hive-${HIVE_VERSION}/g" tmp.dockerfile
+docker build -f tmp.dockerfile -t ${IMAGE}-${HIVE_VERSION}-${HADOOP_VERSION} .
+docker tag -f ${IMAGE}-${HIVE_VERSION}-${HADOOP_VERSION}:latest ${IMAGE}-${HIVE_VERSION}-${HADOOP_VERSION}:$TAG
