@@ -151,4 +151,9 @@
     <value>256</value>
     <description></description>
   </property>
+  <property>
+    <name>hive.metastore.uris</name>
+    <value>HIVE_METASTORE_URIS</value>
+    <description>IP address (or fully-qualified domain name) and port of the metastore host</description>
+  </property>
 </configuration>

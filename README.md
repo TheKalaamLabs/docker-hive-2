@@ -22,7 +22,7 @@ Modify hack/set-default.sh.tmpl
 hack/start_hive.sh
 
 # Start hive shell
-hack/hive
+hack/beeline -u your_metastore -n hive -p hive
 ```
 
 # Reference

@@ -64,23 +64,6 @@ RUN cd $SRC_DIR \
   && tar zxf apache-${HIVE_VERSION}-bin.tar.gz \
   && rm -rf apache-${HIVE_VERSION}-bin.tar.gz
 
-## dev tools to build
-#RUN apt-get update && apt-get install -y git libprotobuf-dev protobuf-compiler
-#
-## install maven
-#RUN curl -s http://mirror.olnevhost.net/pub/apache/maven/binaries/apache-maven-3.2.1-bin.tar.gz | tar -xz -C /usr/local/
-#RUN cd /usr/local && ln -s apache-maven-3.2.1 maven
-#ENV MAVEN_HOME /usr/local/maven
-#ENV PATH $MAVEN_HOME/bin:$PATH
-#
-## compile hive
-#RUN cd /usr/local \
-#  && wget $HIVE_URL/$HIVE_VERSION/apache-${HIVE_VERSION}-src.tar.gz \
-#  && tar zxf apache-${HIVE_VERSION}-src.tar.gz \
-#  && rm -rf apache-${HIVE_VERSION}-src.tar.gz
-#RUN cd /usr/local/apache-${HIVE_VERSION}-src && /usr/local/maven/bin/mvn clean install -DskipTests -Phadoop-2,dist
-#RUN tar -xf /usr/local/apache-${HIVE_VERSION}-src/packaging/target/apache-${HIVE_VERSION}-bin.tar.gz -C $SRC_DIR
-
 # set hive environment
 ENV HIVE_HOME $SRC_DIR/apache-${HIVE_VERSION}-bin
 ENV HIVE_CONF $HIVE_HOME/conf

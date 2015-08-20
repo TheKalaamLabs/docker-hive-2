@@ -5,7 +5,8 @@ PROJECT_HOME="$(cd "$(dirname "$0")"/..; pwd)"
 . $PROJECT_HOME/hack/set-default.sh
 
 HIVE_METASTORE_URIS=thrift://$(hostname -i):9083
-docker run -it --rm --net=host \
+docker run -d \
+	--net=host \
 	-e HDFS_URL=$HDFS_URL \
 	-e HIVE_METASTORE_URIS=$HIVE_METASTORE_URIS \
-	$IMAGE hive
+	$IMAGE /scripts/hiveserver2-bootstrap.sh
